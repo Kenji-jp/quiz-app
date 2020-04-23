@@ -14,9 +14,41 @@ form.addEventListener('submit', e => {
             score += 25;
         }
     });
-    // console.log(score);
 
     // show result on page;
-    result.querySelector('span').textContent = `${score}%`;
+    scrollTo(0,0);
     result.classList.remove('d-none');
+
+    let output = 0;
+    const timer = setInterval(() => {
+        result.querySelector('span').textContent = `${output}%`;
+        if(output === score){
+            clearInterval(timer);
+            } else {
+                output++;
+            }
+        }, 10);
 });
+
+// window object (global object)
+// console.log('hello');
+// window.console.log('hello');
+
+// console.log(document.querySelector('form'));
+// console.log(window.document.querySelector('form'));
+
+// alert('Hello');
+// window.alert('hello');
+// setTimeout(() => {
+//     alert('hello');
+// }, 3000);
+
+let i = 0;
+const timer = setInterval(() => {
+    console.log('hello');
+    i++;
+    if (i === 5){
+        clearInterval(timer);
+    }
+
+}, 1000);
